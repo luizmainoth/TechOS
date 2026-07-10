@@ -42,5 +42,5 @@ Certifique-se de ter o [Docker](https://www.docker.com/) e o [Docker Compose](ht
 
 **1. Clone o repositório:**
 ```bash
-git clone [https://github.com/SEU_USUARIO/TechOS-System.git](https://github.com/SEU_USUARIO/TechOS-System.git)
+git clone [https://github.com/luizmainoth/TechOS-System.git](https://github.com/luizmainoth/TechOS-System.git)
 cd TechOS-System
