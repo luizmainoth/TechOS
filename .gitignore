@@ -1,0 +1,7 @@
+
+techos_data/
+techos_postgres_data/
+
+node_modules/
+target/
+.env
