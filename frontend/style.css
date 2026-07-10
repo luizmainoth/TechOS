@@ -29,7 +29,7 @@ body {
   min-height: 100vh;
 }
 
-/* Tipografia de Terminal */
+
 h1, h2, label, th, .btn {
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -82,7 +82,7 @@ h1, h2, label, th, .btn {
   padding: 25px;
 }
 
-/* Detalhe visual na borda dos painéis */
+
 .cyber-panel::before {
   content: '';
   position: absolute;
@@ -165,7 +165,7 @@ h1, h2, label, th, .btn {
 
 .cyber-btn.secondary:hover { background: rgba(255, 0, 60, 0.1); }
 
-/* TABELA DE DADOS (Substituindo os Cards) */
+
 .table-container { overflow-x: auto; }
 
 .cyber-table {
