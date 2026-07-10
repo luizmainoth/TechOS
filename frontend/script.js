@@ -18,7 +18,7 @@ let todasOS = [];
 
 document.addEventListener("DOMContentLoaded", () => {
   carregarOS();
-  // Limita o calendário para não aceitar datas futuras
+ 
   if (dataEntradaInput) {
     const dataHoje = new Date().toISOString().split("T")[0]; 
     dataEntradaInput.setAttribute("max", dataHoje);
@@ -31,7 +31,7 @@ if(inputPesquisa) inputPesquisa.addEventListener("input", filtrarOS);
 if(cpfInput) cpfInput.addEventListener("input", formatarCPF);
 if(nomeInput) nomeInput.addEventListener("input", bloquearNumeros);
 
-// --- FUNÇÕES DE CARREGAMENTO E LISTAGEM (BANCO DE DADOS) ---
+
 async function carregarOS() {
   try {
     const resposta = await fetch(API_URL);
@@ -55,7 +55,7 @@ function renderizarLista(lista) {
 
   vazioEl.hidden = true;
 
-  // Dicionário Hacker: Traduz o que vem do banco para a interface
+ 
   const tradutorOperacoes = {
     "Livre": "MONTAGEM",
     "Costas": "LIMPEZA",
@@ -67,7 +67,7 @@ function renderizarLista(lista) {
   lista.forEach((os) => {
     const tr = document.createElement("tr");
 
-    // Usa o tradutor. Se o banco mandar algo estranho, exibe o que veio ou "—"
+    
     const operacaoTraduzida = tradutorOperacoes[os.estilo] || os.estilo || "—";
 
     tr.innerHTML = `
@@ -91,7 +91,7 @@ function renderizarLista(lista) {
   });
 }
 
-// --- FUNÇÕES DE SALVAR, EDITAR E EXCLUIR (CRUD) ---
+
 async function salvarOuAtualizar(evento) {
   evento.preventDefault();
 
@@ -99,7 +99,7 @@ async function salvarOuAtualizar(evento) {
   const valorDataEntrada = document.getElementById("data-entrada").value;
   const diasNaOficina = calcularDias(valorDataEntrada);
 
-  // Mapeamento invisível para a API de Atletas aceitar os dados
+
   const dados = {
     nome: document.getElementById("nome-cliente").value,
     idade: diasNaOficina, 
@@ -144,7 +144,7 @@ async function salvarOuAtualizar(evento) {
 function preencherFormularioParaEdicao(os) {
   document.getElementById("os-id").value = os.id;
   document.getElementById("nome-cliente").value = os.nome ?? "";
-  document.getElementById("data-entrada").value = ""; // Limpo, pois o BD retorna os dias e não a data em si
+  document.getElementById("data-entrada").value = ""; 
   document.getElementById("cpf-cliente").value = os.cpf ?? "";
   document.getElementById("codigo-os").value = os.matricula ?? "";
   document.getElementById("tipo-servico").value = os.estilo ?? "";
@@ -180,7 +180,7 @@ async function excluirOS(id, nome) {
   }
 }
 
-// --- FUNÇÕES DE VALIDAÇÃO E FILTROS ---
+
 function validarDados(dados, dataEntrada) {
   const cpfApenasNumeros = dados.cpf.replace(/\D/g, '');
   const dataDigitada = new Date(dataEntrada);
